@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block cssStyles %}
+<link rel="stylesheet" href="{% static 'css/productcve.css' %}">
+<link rel="stylesheet" href="{% static 'css/downloadButton.css' %}">
+{% endblock cssStyles %}
+
+{% block content %}
+<main>
+    {% include 'downloadButton.html' %}
+    <div class="cves"}>
+        {% for cve in cves %} 
+        <a href="{% url 'getSearchResult'%}?cveid={{cve}}">{{cve}}</a>
+        {% endfor %}
+    </div>
+</main>
+{% endblock content %}

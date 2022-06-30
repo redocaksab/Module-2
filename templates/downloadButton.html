@@ -1,0 +1,16 @@
+<div class="button">
+    {% if urlParam == "downloadAll" %}
+    <a class="atuin-btn" href="{% url url 'all' %}">Download PDF</a>
+    {% elif urlParam == "downloadNew" %}
+    <a class="atuin-btn" href="{% url url 'new' %}">Download PDF</a>
+    {% elif urlParam == "downloadCritical" %}
+    <a class="atuin-btn" href="{% url url 'critical' %}">Download PDF</a>
+    {% elif urlParam == "cveid" %}
+    <a class="atuin-btn" href="{% url url %}?cveid={{cve.cve.CVE_data_meta.ID}}">Download PDF</a>
+    {% elif urlParam == "keyword" %}
+    <a class="atuin-btn" href="{% url url %}?keyword={{keyword}}">Download PDF</a>
+    {% elif urlParam == "product" %}
+    <a class="atuin-btn" href="{% url url %}?product={{product}}">Download PDF</a>
+    {% endif %}
+   
+</div>

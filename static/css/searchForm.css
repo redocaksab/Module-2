@@ -1,0 +1,26 @@
+.searchForm {
+    position: relative;
+    max-width: 260px;
+    margin: 100px auto 0;
+}
+.formContent{
+    background: red;
+}
+
+.searchInput {
+    line-height: 35px;
+    border-width: 0;
+    display: block;
+    width: 100%;
+    background-color: #d8d6e0;
+    position: absolute;
+}
+
+.search{
+    position: absolute;
+    top: 7px;
+    left: 272px;
+}
+
+.formContent .searchInput::-moz-placeholder { color: #9691ba; }
+.formContent .searchInput::-webkit-input-placeholder { color: #9691ba; }

@@ -1,0 +1,13 @@
+.cves {
+    background: #eeeff7;
+    width: 35%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding: 7px;
+    box-shadow: 2px 2px 9px rgb(115, 103, 117);
+    display: grid;
+}
+
+a {text-decoration: none; color: black;}
+a:hover {text-decoration: none; color: black; background-color:  #bebeda;}

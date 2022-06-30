@@ -1,0 +1,64 @@
+.title {
+    color: #f3f3f2;
+    text-align: center;
+    font-weight: bold;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 35px;
+    width: 95%;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 7px;
+}
+
+.cveName {
+    margin-top: 7px;
+    margin-bottom: 7px;
+    font-size: 16px;
+}
+
+.cve {
+    position: relative;
+    width: fit-content;
+    min-width: 250px;
+    margin: 0 10px 10px;
+    margin-bottom: 20px;
+    height: 220px;
+    overflow: hidden;
+    background: #eeeff7;
+    box-shadow: 1.5px 1.5px 9px #6a606c;
+    border-radius: 2.3px;
+}
+
+.cve:hover {
+overflow-y: auto;
+}
+
+.cve::-webkit-scrollbar {
+    width: 2px;
+}
+.cve::-webkit-scrollbar-track {
+    background-color: darkgrey;
+}
+.cve::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+}
+.cveContent {
+    margin: 7px;
+    margin-top: 0px;
+    position: absolute;
+    font-size: 13px;
+    top: 0; bottom: 0; left: 0; right: 0;
+    word-break: break-all;
+
+}
+
+.category {
+    font-weight:600;
+}

@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block cssStyles %}
+<link rel="stylesheet" href="{% static 'css/searchForm.css' %}">
+{% endblock cssStyles %}
+
+{% block content %}
+<main>
+    <form method="POST" class="searchForm" >
+        <div class="formContent">
+            
+            {{ form }}
+            <input type="submit" value="Search" class="search">
+        </div>
+        {% csrf_token %}
+        
+    </form>
+</main>
+{% endblock content %}

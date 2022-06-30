@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center">{{title}}</h1>
+    <table>
+        <tr>
+          <th>Cve ID</th>
+          <th>Attack complexity:</th>
+          <th>Confidentiality impact:</th>
+          <th>Integrity impact:</th>
+          <th>Availability impact:</th>
+          <th>Base score:</th>
+          <th>Impact score:</th>
+          <th>Exploitability score:</th>
+          <th>Published date:</th>
+          <th>Last modified date:</th>
+          <th>Description:</th>
+        </tr>
+        {% for cve in CVE_Items %} 
+        <tr>
+            {% if cve.cve.CVE_data_meta.ID %}
+                <td>{{cve.cve.CVE_data_meta.ID}}</td>
+            {% endif %}
+            
+            {% if cve.impact.baseMetricV3.cvssV3.attackComplexity %}
+                <td>{{cve.impact.baseMetricV3.cvssV3.attackComplexity}}</td>
+            {% else %}
+                <td>-</td>
+            {% endif %}
+
+            {% if cve.impact.baseMetricV3.cvssV3.confidentialityImpact %}
+                <td>{{cve.impact.baseMetricV3.cvssV3.confidentialityImpact}}</td>
+            {% else %}
+                <td>-</td>
+            {% endif %}
+            
+            {% if cve.impact.baseMetricV3.cvssV3.integrityImpact %}
+                <td>{{cve.impact.baseMetricV3.cvssV3.integrityImpact}}</td>
+            {% else %}
+                <td>-</td>
+            {% endif %}
+            
+            {% if cve.impact.baseMetricV3.cvssV3.availabilityImpact %}
+                <td>{{cve.impact.baseMetricV3.cvssV3.availabilityImpact}}</td>
+            {% else %}
+                <td>-</td>
+            {% endif %}
+            
+            {% if cve.impact.baseMetricV3.cvssV3.baseScore %}
+                <td>{{cve.impact.baseMetricV3.cvssV3.baseScore}}</td>
+            {% else %}
+                <td>-</td>
+            {% endif %}
+
+            {% if cve.impact.baseMetricV3.impactScore %}
+                <td>{{cve.impact.baseMetricV3.impactScore}}</td>
+            {% else %}
+                <td>-</td>
+            {% endif %}
+
+            {% if cve.impact.baseMetricV3.exploitabilityScore %}
+                <td>{{cve.impact.baseMetricV3.exploitabilityScore}}</td>
+            {% else %}
+                <td>-</td>
+            {% endif %}
+
+
+            {% if cve.publishedDate %}
+                <td>{{cve.publishedDate}}</td>
+            {% else %}
+                <td>-</td>
+            {% endif %}
+
+            {% if cve.lastModifiedDate %}
+                <td>{{cve.lastModifiedDate}}</td>
+            {% else %}
+                <td>-</td>
+            {% endif %}
+
+            {% if cve.cve.description.description_data.0.value %}
+                <td>{{cve.cve.description.description_data.0.value}}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+      </table>
+</body>
+</html>

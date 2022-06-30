@@ -1,0 +1,65 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+
+{% block cssStyles %}
+<link rel="stylesheet" href="{% static 'css/getcve.css' %}">
+<link rel="stylesheet" href="{% static 'css/downloadButton.css' %}">
+{% endblock cssStyles %}
+
+{% block content %}
+<main>
+    {% include 'downloadButton.html' %}
+    <h1 class='title'>{{title}}</h1>
+    <div class='wrapper'> 
+        {% for cve in CVE_Items %} 
+        <div class='cve'>
+            <div class="cveContent">
+                <h4 class='cveName'}>
+                    {{cve.cve.CVE_data_meta.ID}}
+                </h4>
+                {% if cve.impact.baseMetricV3.cvssV3.attackComplexity %}
+                    <div><span class="category">Attack complexity: </span>{{cve.impact.baseMetricV3.cvssV3.attackComplexity}}</div>
+                {% endif %}
+                {% if cve.impact.baseMetricV3.cvssV3.confidentialityImpact %}
+                    <div><span class="category">Confidentiality impact: </span>{{cve.impact.baseMetricV3.cvssV3.confidentialityImpact}}</div>
+                {% endif %}
+                {% if cve.impact.baseMetricV3.cvssV3.integrityImpact %}
+                    <div><span class="category">Integrity impact: </span>{{cve.impact.baseMetricV3.cvssV3.integrityImpact}}</div>
+                {% endif %}
+                {% if cve.impact.baseMetricV3.cvssV3.availabilityImpact %}
+                    <div><span class="category">Availability impact: </span>{{cve.impact.baseMetricV3.cvssV3.availabilityImpact}}</div>
+                {% endif %}
+
+                {% if cve.impact.baseMetricV3.cvssV3.baseScore %}
+                    <div><span class="category">Base score: </span>{{cve.impact.baseMetricV3.cvssV3.baseScore}}</div>
+                {% endif %}
+                {% if cve.impact.baseMetricV3.impactScore %}
+                    <div><span class="category">Impact score: </span>{{cve.impact.baseMetricV3.impactScore}}</div>
+                {% endif %}
+                {% if cve.impact.baseMetricV3.exploitabilityScore %}
+                    <div><span class="category">Exploitability score: </span>{{cve.impact.baseMetricV3.exploitabilityScore}}</div>
+                {% endif %}
+                {% if cve.impact.baseMetricV3.cvssV3.baseSeverity %}
+                    <div><span class="category">Base severity: </span>{{cve.impact.baseMetricV3.cvssV3.baseSeverity}}</div>
+                {% endif %}
+                {% if cve.publishedDate %}
+                    <div><span class="category">Published date: </span>{{cve.publishedDate}}</div>
+                {% endif %}
+                {% if cve.lastModifiedDate %}
+                    <div><span class="category">Last modified date: </span>{{cve.lastModifiedDate}}</div>
+                {% endif %}
+                <div><span class="category">References: </span>
+                    {% for reference in cve.cve.references.reference_data %} 
+                    {{reference.url}} 
+                    {% endfor %}
+                </div>
+                <div><span class="category">Description: </span>{{cve.cve.description.description_data.0.value}}</div>
+            </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+</main>
+{% endblock content %}
